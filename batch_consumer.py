@@ -3,6 +3,10 @@ import queue
 import time
 import json
 import threading
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='127.0.0.1'))
 channel = connection.channel()
@@ -61,12 +65,3 @@ while True:
     except Exception as e:
 
         logger.info("Decoding JSON has failed due to ", str(e))
-
-
-
-
-
-
-
-
-
